@@ -10,7 +10,7 @@ This project sets up a local Elasticsearch 6.8 and Kibana 6.8 development enviro
 ## 📦 Project Structure
 
 ```
-.
+.  
 ├── docker-compose.yml     # Elasticsearch + Kibana setup  
 ├── stream_data.py         # Python script to generate and insert data  
 ├── README.md              # You're here!  
