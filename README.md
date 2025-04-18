@@ -1,26 +1,23 @@
-
-
-```markdown
 # Elasticsearch 6.8 + Kibana 6.8 with Python Data Streamer
 
-This project sets up a local Elasticsearch 6.8 and Kibana 6.8 development environment using Docker Compose, and streams synthetic data over the past 60 days using Python. It's ideal for building and testing dashboards in Kibana.
+This project sets up a local Elasticsearch 6.8 and Kibana 6.8 development environment using Docker Compose, and streams synthetic data over the past 60 days using Python. It’s ideal for building and testing dashboards in Kibana.
 
 ---
 
 ## 📦 Project Structure
 
 ```
-.  
-├── docker-compose.yml     # Elasticsearch + Kibana setup  
-├── stream_data.py         # Python script to generate and insert data  
-├── README.md              # You're here!  
+.
+├── docker-compose.yml     # Elasticsearch + Kibana setup
+├── stream_data.py         # Python script to generate and insert data
+├── README.md              # You're here!
 ```
 
 ---
 
-## 🚀 Setup Instructions  
+## 🚀 Setup Instructions
 
-### 1. Clone the Repo  
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/your-org/es68-kibana-stream.git
@@ -38,7 +35,7 @@ docker-compose up
 - Elasticsearch: [http://localhost:9200](http://localhost:9200)
 - Kibana: [http://localhost:5601](http://localhost:5601)
 
-> ✅ Note: It may take up to a minute for Elasticsearch and Kibana to fully initialize.
+> ⏳ **Note:** It may take up to a minute for Elasticsearch and Kibana to fully initialize.
 
 ---
 
@@ -56,30 +53,30 @@ pip install elasticsearch==7.13.4
 
 ### 4. Stream Synthetic Data
 
-Run the Python script to generate and index 60 days of data with ~500 documents per day:
+Run the Python script to generate and index 60 days of synthetic data (~500 documents per day):
 
 ```bash
 python stream_data.py
 ```
 
-The script will:
+This script will:
 - Create an index called `product-events`
 - Generate ~30,000 synthetic documents
-- Use 3 values for `ProductSource` and 8 for `ProductType`
-- Distribute timestamps evenly over the past 2 months
+- Randomly assign 3 values for `ProductSource` and 8 for `ProductType`
+- Evenly distribute timestamps across the past 60 days
 
 ---
 
 ## 📊 Building Dashboards in Kibana
 
-Once the data is ingested:
+After the data is ingested:
 
 1. Open Kibana at [http://localhost:5601](http://localhost:5601)
-2. Go to **Stack Management > Index Patterns**
+2. Navigate to **Stack Management > Index Patterns**
 3. Create a new index pattern:
-   - Index name: `product-events`
-   - Timestamp field: `timestamp`
-4. Explore visualizations in **Dashboard > Create new dashboard**:
+   - **Index name:** `product-events`
+   - **Timestamp field:** `timestamp`
+4. Explore visualizations under **Dashboard > Create new dashboard**:
    - Bar chart of `ProductType` counts
    - Pie chart by `ProductSource`
    - Time series of `Amount` or `UnitsSold`
@@ -90,14 +87,14 @@ Once the data is ingested:
 
 - **Elasticsearch** 6.8.23
 - **Kibana** 6.8.23
-- **Python** 3.7+ (Tested with 3.10)
+- **Python** 3.7+ (tested with 3.10)
 - **Elasticsearch Python Client** 7.13.4 (compatible with ES 6.8)
 
 ---
 
 ## 🧹 Cleanup
 
-To stop and remove containers and data:
+To stop and remove containers and associated volumes:
 
 ```bash
 docker-compose down -v
@@ -107,13 +104,10 @@ docker-compose down -v
 
 ## 📄 License
 
-MIT License. Use freely and modify as needed.
+MIT License. Feel free to use and modify as needed.
 
 ---
 
 ## 💬 Questions?
 
-Feel free to open an issue or ping the maintainer if you'd like enhancements or continuous data streaming.
-```
-
----
+Feel free to open an issue or contact the maintainer for enhancements, questions, or continuous data streaming options.
