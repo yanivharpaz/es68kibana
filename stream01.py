@@ -13,7 +13,7 @@ product_sources = ["Online", "Retail", "Wholesale"]
 product_types = ["Electronics", "Clothing", "Books", "Toys", "Furniture", "Groceries", "Sports", "Beauty"]
 
 # Generate documents
-def generate_documents(start_date, days=60, docs_per_day=500):
+def generate_documents(start_date, days=85, docs_per_day=800):
     for day in range(days):
         current_date = start_date + timedelta(days=day)
         for _ in range(docs_per_day):
